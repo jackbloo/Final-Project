@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Disposable_id</title>
+        <link rel="stylesheet" type="text/css" href="calculator.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Muli|Poppins|Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    </head>
+    <body>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="index.html"><i class="fas fa-images"></i> DisposableID</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="aboutme.html">About Me</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="calculator.html">Calculator</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                      </ul>
+                      <ul class="navbar-nav ml-auto">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup">
+                                     Signup
+                     </button>
+                            </ul>
+                    </div>
+                            
+                  </nav>
+                  <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                    <form action="https://formspree.io/jackomoi14@gmail.com" method="POST">
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Email address</label>
+                                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                            <div class="form-group">
+                                              <label for="Name">Name</label>
+                                              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your Name">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" value="send">Submit</button>
+                                          </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          
+        <div class= "java-cal">
+        <h1>Calculator</h1>
+        
+        <div id="calculator" class="calculator">
+        
+        <div id="viewer" class="viewer">0</div>
+
+        <table class= halo>
+        <tr>
+        <td><button id="clear" class="clear">C</button></td>
+        <td><button data-ops="plus" class="ops">+</button></td>
+        <td><button data-ops="minus" class="ops">-</button></td>
+        <td><button data-ops="times" class="ops">*</button></td>
+
+        </tr>
+        <tr>
+        <td><button class="num" data-num="7">7</button></td>
+        <td><button class="num" data-num="8">8</button></td>
+        <td><button class="num" data-num="9">9</button></td>
+        <td><button data-ops="divided by" class="ops">/</button></td>
+        </tr>
+        <tr>
+        <td><button class="num" data-num="4">4</button></td>
+        <td><button class="num" data-num="5">5</button></td>
+        <td><button class="num" data-num="6">6</button></td>
+        <td rowspan="10"><button id="equals" class="equals" data-result="">=</button></td>
+        
+        </tr>
+        <tr>
+        <td><button class="num" data-num="1">1</button></td>
+        <td><button class="num" data-num="2">2</button></td>
+        <td><button class="num" data-num="3">3</button></td>
+
+        
+        </tr>
+        <tr>
+        <td colspan="2"><button class="num" style="width:100px" data-num="0">0</button></td>
+        <td><button class="num" data-num=".">.</button></td>
+          </tr>
+    </table>
+     </div>
+    </div>
+     <script>
+        
+    (function() {
+    "use strict";
+
+    var el = function(element) {
+        if (element.charAt(0) === "#") { 
+        return document.querySelector(element);
+        }
+
+        return document.querySelectorAll(element); 
+    };
+
+  
+    var viewer = el("#viewer"), 
+        equals = el("#equals"), 
+        nums = el(".num"), 
+        ops = el(".ops"), 
+        theNum = "", 
+        oldNum = "", 
+        resultNum, 
+        operator; 
+
+    
+    var setNum = function() {
+        if (resultNum) { 
+        theNum = this.getAttribute("data-num");
+        resultNum = "";
+        } else { 
+        theNum += this.getAttribute("data-num");
+        }
+
+        viewer.innerHTML = theNum; 
+
+    };
+
+   
+    var moveNum = function() {
+        oldNum = theNum;
+        theNum = "";
+        operator = this.getAttribute("data-ops");
+
+        equals.setAttribute("data-result", ""); 
+    };
+
+    
+    var displayNum = function() {
+
+       
+        oldNum = parseFloat(oldNum);
+        theNum = parseFloat(theNum);
+
+    
+        switch (operator) {
+        case "plus":
+            resultNum = oldNum + theNum;
+            break;
+
+        case "minus":
+            resultNum = oldNum - theNum;
+            break;
+
+        case "times":
+            resultNum = oldNum * theNum;
+            break;
+
+        case "divided by":
+            resultNum = oldNum / theNum;
+            break;
+
+        default:
+            resultNum = theNum;
+        }
+
+
+        
+        viewer.innerHTML = resultNum;
+        equals.setAttribute("data-result", resultNum);
+
+        
+        oldNum = 0;
+        theNum = resultNum;
+
+    };
+
+   
+    var clearAll = function() {
+        oldNum = "";
+        theNum = "";
+        viewer.innerHTML = "0";
+        equals.setAttribute("data-result", resultNum);
+    };
+
+
+    for (var i = 0, l = nums.length; i < l; i++) {
+        nums[i].onclick = setNum;
+    }
+
+   
+    for (var i = 0, l = ops.length; i < l; i++) {
+        ops[i].onclick = moveNum;
+    }
+
+   
+    equals.onclick = displayNum;
+
+    el("#clear").onclick = clearAll;
+
+
+    }());
+    </script>
+                    
+                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                    
+    </body>
+</html>

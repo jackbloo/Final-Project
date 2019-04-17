@@ -1,0 +1,41 @@
+body {
+	background-color: rgba(0,0,0,0.2);
+	background-size: cover;
+	background-position: center;
+	font-family: Poppins;
+    
+}
+img {
+    height: 550px;
+    width: 100px;
+}
+
+li {
+	font-family: Muli
+}
+
+#rocket {
+    opacity: 1;
+    color: black;
+}
+
+html {
+	height: 100%;
+}
+
+#content {
+    text-align: center;
+    margin: 2%;
+
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 5em;
+}
+
+
+.fa-rocket {
+	color: black;
+}
+ 

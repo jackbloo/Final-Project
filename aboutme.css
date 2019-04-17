@@ -1,0 +1,46 @@
+body {
+	background: url(https://images.unsplash.com/photo-1478024646077-8a9b56e5319c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+	background-size: cover;
+	background-position: center;
+	font-family: Poppins;
+    
+}
+
+li {
+	font-family: Muli
+}
+
+
+#rocket {
+    opacity: 1;
+    color: black;
+}
+
+html {
+	height: 100%;
+}
+
+#content {
+    text-align: center;
+    margin: 2%;
+
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 5em;
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.fa-rocket {
+	color: black;
+}
+ 
+#garis {
+	color: black;
+}
